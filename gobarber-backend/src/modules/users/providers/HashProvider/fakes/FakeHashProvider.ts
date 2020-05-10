@@ -1,7 +1,7 @@
 import IHashProvider from '../models/IHashProvider';
 
 export default class BCryptHashProvider implements IHashProvider {
-  public async createHash(payload: string): Promise<string> {
+  public async generateHash(payload: string): Promise<string> {
     return payload;
   }
 
