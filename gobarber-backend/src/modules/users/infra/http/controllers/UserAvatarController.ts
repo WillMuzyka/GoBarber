@@ -7,7 +7,7 @@ export default class UserAvatarController {
   public async update(req: Request, res: Response): Promise<Response> {
     const updateUserAvatar = container.resolve(UpdateUserAvatarService);
     const user = await updateUserAvatar.execute({
-      userId: req.user.id,
+      user_id: req.user.id,
       avatarFileName: req.file.filename,
     });
 

@@ -20,12 +20,12 @@ interface IResponse {
 }
 
 @injectable()
-class AuthenticateUserService {
+export default class AuthenticateUserService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
 
-    @inject('BCryptHashProvider')
+    @inject('HashProvider')
     private hashProvider: IHashProvider,
   ) {}
 
@@ -53,5 +53,3 @@ class AuthenticateUserService {
     return { user, token };
   }
 }
-
-export default AuthenticateUserService;
