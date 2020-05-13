@@ -1,11 +1,12 @@
-import { getRepository, Repository } from 'typeorm';
+import { getRepository, Repository, Not } from 'typeorm';
 
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 import ICreateUserDTO from '@modules/users/dtos/ICreateUserDTO';
+import IFindAllProvidersDTO from '@modules/users/dtos/IFindAllProvidersDTO';
 
 import User from '../entities/User';
 
-class UsersRepository implements IUsersRepository {
+export default class UsersRepository implements IUsersRepository {
   private ormRepository: Repository<User>;
 
   constructor() {
@@ -34,6 +35,19 @@ class UsersRepository implements IUsersRepository {
 
     return user;
   }
-}
 
-export default UsersRepository;
+  public async findAllProviders({
+    except_user_id,
+  }: IFindAllProvidersDTO): Promise<User[]> {
+    let filter = {};
+    if (except_user_id) {
+      filter = { where: { id: Not(except_user_id) } };
+    }
+
+    const providers = await this.ormRepository.find(filter);
+
+    providers.forEach(provider => delete provider.password);
+
+    return providers;
+  }
+}

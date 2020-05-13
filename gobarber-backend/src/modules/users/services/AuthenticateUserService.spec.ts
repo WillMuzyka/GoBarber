@@ -5,74 +5,58 @@ import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import AuthenticateUserService from './AuthenticateUserService';
 import CreateUserService from './CreateUserService';
 
+let fakeUsersRepository: FakeUsersRepository;
+let fakeHashProvider: FakeHashProvider;
+let authenticateUser: AuthenticateUserService;
+let createUser: CreateUserService;
+
 describe('AuthenticateUser', () => {
-  const email = 'jhon@doe.com';
-  const password = '123123';
+  beforeEach(() => {
+    fakeUsersRepository = new FakeUsersRepository();
+    fakeHashProvider = new FakeHashProvider();
+
+    authenticateUser = new AuthenticateUserService(
+      fakeUsersRepository,
+      fakeHashProvider,
+    );
+    createUser = new CreateUserService(fakeUsersRepository, fakeHashProvider);
+  });
 
   it('should be able to authenticate', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
-    const authenticateUser = new AuthenticateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    const createUser = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-
     const user = await createUser.execute({
       name: 'John Doe',
-      email,
-      password,
+      email: 'jhon@doe.com',
+      password: '123123',
     });
 
-    const response = await authenticateUser.execute({ email, password });
+    const response = await authenticateUser.execute({
+      email: 'jhon@doe.com',
+      password: '123123',
+    });
 
     expect(response).toHaveProperty('token');
     expect(response.user).toBe(user);
   });
 
   it('should not be able to authenticate non existing user', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
-    const authenticateUser = new AuthenticateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-
     await expect(
       authenticateUser.execute({
-        email,
-        password,
+        email: 'jhon@doe.com',
+        password: '123123',
       }),
     ).rejects.toBeInstanceOf(AppError);
   });
 
   it('should not be able to authenticate with wrong password', async () => {
-    const fakeUsersRepository = new FakeUsersRepository();
-    const fakeHashProvider = new FakeHashProvider();
-
-    const authenticateUser = new AuthenticateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-    const createUser = new CreateUserService(
-      fakeUsersRepository,
-      fakeHashProvider,
-    );
-
     await createUser.execute({
       name: 'John Doe',
-      email,
-      password,
+      email: 'jhon@doe.com',
+      password: '123123',
     });
 
     await expect(
       authenticateUser.execute({
-        email,
+        email: 'jhon@doe.com',
         password: 'wrong-password',
       }),
     ).rejects.toBeInstanceOf(AppError);
