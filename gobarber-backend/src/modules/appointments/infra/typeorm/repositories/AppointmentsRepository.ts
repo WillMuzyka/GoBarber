@@ -7,7 +7,7 @@ import IFindAllInDayFromProvidersDTO from '@modules/appointments/dtos/IFindAllIn
 
 import Appointment from '../entities/Appointment';
 
-class AppointmentsRepository implements IAppointmentsRepository {
+export default class AppointmentsRepository implements IAppointmentsRepository {
   private ormRepository: Repository<Appointment>;
 
   constructor() {
@@ -76,5 +76,3 @@ class AppointmentsRepository implements IAppointmentsRepository {
     return findAppointment;
   }
 }
-
-export default AppointmentsRepository;
