@@ -24,6 +24,7 @@ appointmentsRouter.get(
       provider_id: Joi.string().uuid().required(),
     },
   }),
+  providerMonthAvailabilityController.index,
 );
 appointmentsRouter.get(
   '/:provider_id/day-availability',
