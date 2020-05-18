@@ -1,38 +1,16 @@
 // import AppError from '@shared/errors/AppError';
 
-<<<<<<< HEAD
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
-=======
-<<<<<<< HEAD
-=======
-import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
->>>>>>> development
->>>>>>> 34a6557622c2dd5893bbf0b26f5365d9c3539f00
 import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
 
 import ListProvidersService from './ListProvidersService';
 
-<<<<<<< HEAD
 let fakeCacheProvider: FakeCacheProvider;
-=======
-<<<<<<< HEAD
-=======
-let fakeCacheProvider: FakeCacheProvider;
->>>>>>> development
->>>>>>> 34a6557622c2dd5893bbf0b26f5365d9c3539f00
 let fakeUsersRepository: FakeUsersRepository;
 let listProviders: ListProvidersService;
 
 describe('ListProviders', () => {
   beforeEach(() => {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    fakeUsersRepository = new FakeUsersRepository();
-
-    listProviders = new ListProvidersService(fakeUsersRepository);
-=======
->>>>>>> 34a6557622c2dd5893bbf0b26f5365d9c3539f00
     fakeCacheProvider = new FakeCacheProvider();
     fakeUsersRepository = new FakeUsersRepository();
 
@@ -40,10 +18,6 @@ describe('ListProviders', () => {
       fakeUsersRepository,
       fakeCacheProvider,
     );
-<<<<<<< HEAD
-=======
->>>>>>> development
->>>>>>> 34a6557622c2dd5893bbf0b26f5365d9c3539f00
   });
 
   it('should be able to list the providers', async () => {

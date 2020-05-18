@@ -53,10 +53,6 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
       },
     });
     return findAppointment;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 34a6557622c2dd5893bbf0b26f5365d9c3539f00
   }
 
   public async findAllInDayFromProvider({
@@ -78,31 +74,5 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
       },
     });
     return findAppointment;
-<<<<<<< HEAD
-=======
-=======
->>>>>>> development
-  }
-
-  public async findAllInDayFromProvider({
-    provider_id,
-    day,
-    month,
-    year,
-  }: IFindAllInDayFromProvidersDTO): Promise<Appointment[]> {
-    const parsedDay = String(day).padStart(2, '0');
-    const parsedMonth = String(month).padStart(2, '0');
-
-    const findAppointment = await this.ormRepository.find({
-      where: {
-        provider_id,
-        date: Raw(
-          dateFieldName =>
-            `to_char(${dateFieldName}, 'DD-MM-YYYY') = '${parsedDay}-${parsedMonth}-${year}'`,
-        ),
-      },
-    });
-    return findAppointment;
->>>>>>> 34a6557622c2dd5893bbf0b26f5365d9c3539f00
   }
 }
