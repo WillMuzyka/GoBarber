@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { container } from 'tsyringe';
 
 import IStorageProvider from './StorageProvider/models/IStorageProvider';
@@ -23,3 +24,9 @@ container.registerInstance<IMailProvider>(
   'MailProvider',
   container.resolve(EtherealMailProvider),
 );
+=======
+import './MailTemplateProvider';
+import './MailProvider';
+import './StorageProvider';
+import './CacheProvider';
+>>>>>>> development
