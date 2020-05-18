@@ -10,7 +10,7 @@ const providers = {
   s3: S3StorageProvider,
 };
 
-export default container.registerSingleton<IStorageProvider>(
+container.registerSingleton<IStorageProvider>(
   'StorageProvider',
   providers[storageConfig.driver],
 );

@@ -11,7 +11,7 @@ const providers = {
   ses: container.resolve(SESMailProvider),
 };
 
-export default container.registerInstance<IMailProvider>(
+container.registerInstance<IMailProvider>(
   'MailProvider',
   providers[mailConfig.driver],
 );

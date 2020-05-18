@@ -8,7 +8,7 @@ const providers = {
   handlebars: HandlebarsMailProvider,
 };
 
-export default container.registerSingleton<IMailTemplateProvider>(
+container.registerSingleton<IMailTemplateProvider>(
   'MailTemplateProvider',
   providers.handlebars,
 );

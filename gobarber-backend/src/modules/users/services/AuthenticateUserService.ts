@@ -46,8 +46,6 @@ export default class AuthenticateUserService {
 
     const { secret, expiresIn } = authConfig.jwt;
 
-    if (!secret) throw new AppError('Invalid secret. Check the .env file');
-
     const token = sign({}, secret, {
       subject: user.id,
       expiresIn,

@@ -10,12 +10,14 @@ import routes from '@shared/infra/http/routes';
 
 import AppError from '@shared/errors/AppError';
 import storageConfig from '@config/storage';
+import rateLimiter from './middlewares/rateLimiter';
 
 import '@shared/infra/typeorm';
 import '@shared/container';
 
 const app = express();
 
+app.use(rateLimiter);
 app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(storageConfig.uploadFolder));
