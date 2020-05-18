@@ -15,7 +15,6 @@ export default class ListProvidersService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
-
     @inject('CacheProvider')
     private cacheProvider: ICacheProvider,
   ) {}
