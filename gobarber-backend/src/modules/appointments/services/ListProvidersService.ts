@@ -3,10 +3,7 @@ import { inject, injectable } from 'tsyringe';
 // import AppError from '@shared/errors/AppError';
 import User from '@modules/users/infra/typeorm/entities/User';
 
-<<<<<<< HEAD
-=======
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
->>>>>>> development
 import IUsersRepository from '@modules/users/repositories/IUsersRepository';
 
 interface IRequest {
@@ -18,15 +15,6 @@ export default class ListProvidersService {
   constructor(
     @inject('UsersRepository')
     private usersRepository: IUsersRepository,
-<<<<<<< HEAD
-  ) {}
-
-  public async execute({ except_user_id }: IRequest): Promise<User[]> {
-    const providers = await this.usersRepository.findAllProviders({
-      except_user_id,
-    });
-
-=======
 
     @inject('CacheProvider')
     private cacheProvider: ICacheProvider,
@@ -47,7 +35,6 @@ export default class ListProvidersService {
         providers,
       );
     }
->>>>>>> development
     return providers;
   }
 }

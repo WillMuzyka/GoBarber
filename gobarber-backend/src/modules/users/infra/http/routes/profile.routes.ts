@@ -1,8 +1,5 @@
 import { Router } from 'express';
-<<<<<<< HEAD
-=======
 import { celebrate, Joi, Segments } from 'celebrate';
->>>>>>> development
 
 import ProfileController from '../controllers/ProfileController';
 
@@ -15,9 +12,6 @@ const profileController = new ProfileController();
 profileRouter.use(ensureAuthenticated);
 
 profileRouter.get('/', profileController.show);
-<<<<<<< HEAD
-profileRouter.put('/', profileController.update);
-=======
 profileRouter.put(
   '/',
   celebrate({
@@ -33,6 +27,5 @@ profileRouter.put(
   }),
   profileController.update,
 );
->>>>>>> development
 
 export default profileRouter;

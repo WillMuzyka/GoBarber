@@ -5,22 +5,13 @@ import FakeUsersRepository from '../repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '../providers/HashProvider/fakes/FakeHashProvider';
 import CreateUserService from './CreateUserService';
 
-<<<<<<< HEAD
-=======
 let fakeCacheProvider: FakeCacheProvider;
->>>>>>> development
 let fakeUsersRepository: FakeUsersRepository;
 let fakeHashProvider: FakeHashProvider;
 let createUser: CreateUserService;
 
 describe('CreateUser', () => {
   beforeEach(() => {
-<<<<<<< HEAD
-    fakeUsersRepository = new FakeUsersRepository();
-    fakeHashProvider = new FakeHashProvider();
-
-    createUser = new CreateUserService(fakeUsersRepository, fakeHashProvider);
-=======
     fakeCacheProvider = new FakeCacheProvider();
     fakeUsersRepository = new FakeUsersRepository();
     fakeHashProvider = new FakeHashProvider();
@@ -30,7 +21,6 @@ describe('CreateUser', () => {
       fakeHashProvider,
       fakeCacheProvider,
     );
->>>>>>> development
   });
 
   it('should be able to create a new user', async () => {
