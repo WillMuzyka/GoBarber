@@ -8,11 +8,9 @@ export default class AppointmentsController {
     const user_id = req.user.id;
     const { provider_id, date } = req.body;
 
-    const createAppointmentService = container.resolve(
-      CreateAppointmentService,
-    );
+    const createAppointment = container.resolve(CreateAppointmentService);
 
-    const appointment = await createAppointmentService.execute({
+    const appointment = await createAppointment.execute({
       user_id,
       provider_id,
       date,
