@@ -15,7 +15,7 @@ describe('ListProviderMonthAvailability', () => {
     );
 
     jest.spyOn(Date, 'now').mockImplementationOnce(() => {
-      return new Date(2050, 6, 17, 12, 0, 0).getTime();
+      return new Date(2050, 5, 17, 12, 0, 0).getTime();
     });
   });
 

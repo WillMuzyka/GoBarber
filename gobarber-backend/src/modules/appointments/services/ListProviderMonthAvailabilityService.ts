@@ -48,7 +48,7 @@ export default class ListProviderMonthAvailabilityService {
       );
 
       const date = new Date(year, month - 1, day, 23, 59, 59);
-      console.log(date, currentDay);
+
       return {
         day,
         available: isAfter(date, currentDay) && appointmentsInDay.length < 10,
