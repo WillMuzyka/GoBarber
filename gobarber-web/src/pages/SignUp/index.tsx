@@ -58,7 +58,7 @@ const SignUp: React.FC = () => {
           formRef.current?.setErrors(errors);
           return;
         }
-        console.log(error);
+
         if (error.status) {
           addToast({
             type: 'error',
