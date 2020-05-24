@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Tooltip from '../Tooltip';
 
 interface ContainerProps {
+  name: string;
   isFocused: boolean;
   isFilled: boolean;
   hasError: boolean;
