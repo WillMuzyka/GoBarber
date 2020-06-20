@@ -46,8 +46,6 @@ export default class UsersRepository implements IUsersRepository {
 
     const providers = await this.ormRepository.find(filter);
 
-    providers.forEach(provider => delete provider.password);
-
     return providers;
   }
 }

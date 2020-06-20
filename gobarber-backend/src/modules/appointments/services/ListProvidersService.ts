@@ -1,3 +1,4 @@
+import { classToClass } from 'class-transformer';
 import { inject, injectable } from 'tsyringe';
 
 // import AppError from '@shared/errors/AppError';
@@ -31,7 +32,7 @@ export default class ListProvidersService {
 
       await this.cacheProvider.save(
         `providers_list:${except_user_id}`,
-        providers,
+        classToClass(providers),
       );
     }
     return providers;
