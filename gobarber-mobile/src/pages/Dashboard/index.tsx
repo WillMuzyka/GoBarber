@@ -61,6 +61,7 @@ const Dashboard: React.FC = () => {
           <UserAvatar source={{ uri: user.avatar_url }} />
         </ProfileButton>
       </Header>
+
       <ProvidersList
         data={providers}
         keyExtractor={(provider) => provider.id}
