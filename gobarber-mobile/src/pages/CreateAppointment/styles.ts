@@ -43,6 +43,8 @@ export const UserAvatar = styled.Image`
   border-radius: 27px;
 `;
 
+export const ProvidersListContainer = styled.View``;
+
 export const ProvidersList = styled(FlatList as new () => FlatList<Provider>)`
   padding: 32px 24px 16px;
 `;
@@ -71,4 +73,29 @@ export const ProviderName = styled.Text<ProviderProps>`
   font-size: 14px;
   font-family: 'RobotoSlab-Medium';
   color: ${(props) => (props.selected ? '#232129' : '#f4ede8')};
+`;
+
+export const ShowDatePickerButton = styled(RectButton)`
+  height: 46px;
+  background-color: #ff9000;
+  border-radius: 10px;
+  margin: 0 24px;
+
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ShowDatePickerButtonText = styled.Text`
+  font-size: 16px;
+  font-family: 'RobotoSlab-Medium';
+  color: #232129;
+`;
+
+export const Calendar = styled.View``;
+
+export const CalendarTitle = styled.Text`
+  margin: 0 24px 24px;
+  font-size: 25px;
+  font-family: 'RobotoSlab-Medium';
+  color: #f4ede8;
 `;
