@@ -124,7 +124,14 @@ const CreateAppointment: React.FC = () => {
           date,
         });
 
-        navigate('AppointmentCreated', { date: date.getTime() });
+        const provider = providers.find(
+          (prov) => prov.id === selectedProvider,
+        ) || { name: 'seu cabeleireiro' };
+
+        navigate('AppointmentCreated', {
+          date: date.getTime(),
+          providerName: provider.name,
+        });
       } catch (error) {
         Alert.alert(
           'Erro ao criar agendamento',
@@ -142,7 +149,7 @@ const CreateAppointment: React.FC = () => {
         );
       }
     }
-  }, [navigate, selectedDate, selectedHour, selectedProvider]);
+  }, [navigate, selectedDate, selectedHour, selectedProvider, providers]);
 
   const morningAvailability = useMemo(() => {
     return availability
