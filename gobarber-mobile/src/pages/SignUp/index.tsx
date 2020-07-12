@@ -78,6 +78,7 @@ const SignUp: React.FC = () => {
         if (error.status) {
           Alert.alert(error.message);
         }
+
         Alert.alert(
           'Erro no cadastro',
           'Ocorreu um erro ao fazer cadastro, tente novamente.',
