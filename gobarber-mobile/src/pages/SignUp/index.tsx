@@ -61,7 +61,7 @@ const SignUp: React.FC = () => {
           abortEarly: false,
         });
 
-        await api.post('/users', data);
+        await api.post('users', data);
 
         navigation.goBack();
 
@@ -100,13 +100,10 @@ const SignUp: React.FC = () => {
   return (
     <>
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
+        style={{ flex: 1, justifyContent: 'center' }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
-        <ScrollView
-          contentContainerStyle={{ flex: 1 }}
-          keyboardShouldPersistTaps="handled"
-        >
+        <ScrollView keyboardShouldPersistTaps="handled">
           <Container>
             <Image source={logoImg} />
             <View>
