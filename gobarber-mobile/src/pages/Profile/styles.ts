@@ -32,6 +32,20 @@ export const UserAvatar = styled.Image`
   align-self: center;
 `;
 
+export const CameraIcon = styled.View`
+  background-color: #FF9000;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+`;
+
 export const Title = styled.Text`
   font-size: 20px;
   color: #fff;

@@ -30,6 +30,7 @@ import {
   Header,
   BackButton,
   UserAvatar,
+  CameraIcon,
   Title,
   AvatarButton,
 } from './styles';
@@ -233,6 +234,9 @@ const SignUp: React.FC = () => {
 
               <AvatarButton onPress={handleAvatarUpdate}>
                 <UserAvatar source={{ uri: user.avatar_url }} />
+                <CameraIcon>
+                  <Icon name="camera" size={24} color="#312E38"/>
+                </CameraIcon>
               </AvatarButton>
             </Header>
 
