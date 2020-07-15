@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import {
   ScrollView,
   KeyboardAvoidingView,
@@ -49,6 +49,8 @@ interface DimensionsProps {
 }
 
 const SignUp: React.FC = () => {
+  const [hasChanged, setHasChanged] = useState(false);
+
   const { user, updateUser } = useAuth();
 
   const formRef = useRef<FormHandles>(null);
@@ -250,6 +252,10 @@ const SignUp: React.FC = () => {
                 placeholder="Nome"
                 returnKeyType="next"
                 onSubmitEditing={() => emailInputRef.current?.focus()}
+                onChange={()=>{
+                  setHasChanged(true);
+                  console.log("WHATY")
+                }}
               />
               <Input
                 ref={emailInputRef}
@@ -301,6 +307,8 @@ const SignUp: React.FC = () => {
               <Button
                 onPress={() => formRef.current?.submitForm()}
                 containerStyle={{ marginBottom: 24 }}
+                hasChanged={hasChanged}
+                enabled={hasChanged}
               >
                 Confirmar mudanças
               </Button>
