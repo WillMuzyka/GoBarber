@@ -82,6 +82,16 @@ const SignIn: React.FC = () => {
         Alert.alert(
           'Erro na autenticação',
           'Ocorreu um erro ao fazer login, cheque as credenciais.',
+          [
+            {
+              text: 'Mais informações',
+              onPress: () => Alert.alert(`${error.response.data.message}`),
+            },
+            {},
+            {
+              text: 'OK',
+            },
+          ],
         );
       }
     },

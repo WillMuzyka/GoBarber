@@ -61,7 +61,7 @@ const SignUp: React.FC = () => {
           abortEarly: false,
         });
 
-        await api.post('/users', data);
+        await api.post('users', data);
 
         navigation.goBack();
 
@@ -78,9 +78,20 @@ const SignUp: React.FC = () => {
         if (error.status) {
           Alert.alert(error.message);
         }
+
         Alert.alert(
           'Erro no cadastro',
           'Ocorreu um erro ao fazer cadastro, tente novamente.',
+          [
+            {
+              text: 'Mais informações',
+              onPress: () => Alert.alert(`${error.response.data.message}`),
+            },
+            {},
+            {
+              text: 'OK',
+            },
+          ],
         );
       }
     },
@@ -89,13 +100,10 @@ const SignUp: React.FC = () => {
   return (
     <>
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
+        style={{ flex: 1, justifyContent: 'center' }}
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       >
-        <ScrollView
-          contentContainerStyle={{ flex: 1 }}
-          keyboardShouldPersistTaps="handled"
-        >
+        <ScrollView keyboardShouldPersistTaps="handled">
           <Container>
             <Image source={logoImg} />
             <View>

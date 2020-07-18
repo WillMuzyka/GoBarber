@@ -5,10 +5,17 @@ import { Container, ButtonText } from './styles';
 
 interface ButtonProps extends RectButtonProperties {
   children: string;
+  containerStyle?: {};
+  hasChanged?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, ...rest }) => (
-  <Container {...rest}>
+const Button: React.FC<ButtonProps> = ({
+  children,
+  containerStyle = {},
+  hasChanged = true,
+  ...rest
+}) => (
+  <Container style={containerStyle} hasChanged={hasChanged} {...rest}>
     <ButtonText>{children}</ButtonText>
   </Container>
 );
