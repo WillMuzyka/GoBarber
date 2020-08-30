@@ -4,6 +4,7 @@
 node_modules/
 build/
 coverage/
+dist/
 
 # sensitive information
 .env
