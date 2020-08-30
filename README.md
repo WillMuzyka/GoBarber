@@ -1,8 +1,8 @@
 <h1  align="center">
-<img  alt="Launchbase"  src="https://storage.googleapis.com/golden-wind/bootcamp-gostack/header-desafios.png" />
+<img  alt="GoStack"  src="https://storage.googleapis.com/golden-wind/bootcamp-gostack/header-desafios.png" />
 </h1>
 <h3  align="center">
-Project Foodfy: Bootcamp LaunchBase
+Project GoBarber: Bootcamp GoStack
 </h3>
 
 <p  align="center">
@@ -45,15 +45,17 @@ This project used a lot of technologies and concepts. A few of them are listed b
 * [React Native](https://reactnative.dev/)
 * [CSS](https://developer.mozilla.org/docs/Web/CSS)
 * [Styled Components](https://styled-components.com/)
-* [HTML](https://developer.mozilla.org/docs/Web/HTML)
+* [JSX](https://reactjs.org/docs/introducing-jsx.html)
 * [JWT](https://jwt.io/)
 * [Express](https://expressjs.com/)
 * [Multer](https://github.com/expressjs/multer)
 * [PostgreSQL](https://www.postgresql.org/)
+* [MongoDB](https://www.mongodb.com/)
+* [Redis](https://redis.io/)
 
 ## :hourglass_flowing_sand: Installation:
 
-To install and use this application, first be sure that you have node, npm and yarn installed (you can run everything with npm, if you prefer, but I recommend yarn). They are essential for running the application.
+To install and use this application, first be sure that you have node, npm and/or yarn installed (you can run everything with npm, if you prefer, but I recommend yarn). They are essential for running the application.
 
 The whole project was made based on Node.js and react. If you want to emulate the mobile app, you also will need the packages for the plataform that you'll use, that being Android or iOS. If you want to use this library, please clone this repository and check the following steps.
 
@@ -63,9 +65,9 @@ The whole project was made based on Node.js and react. If you want to emulate th
 
 2. In the backend, web and mobile folder (you can use `cd GoBarber`), run the command `yarn` or `npm install` to install all the required packages listed on the file *`package.json`*.
 
-3. The backend consumes a Postgres Database, so you will need one running. I used docker, but feel free to use any other service. The configurations for the database can be found at ormconfig.json.
+3. The backend consumes a Postgres, MongoDB and Redis Database, so you will need have them running. I used docker, but feel free to use any other service. The configurations for the databases can be found at `ormconfig.json` and `/src/conf/cache.ts` .
 
-4. You'll now run all the migrations for the database, *in the backend folder*, with the command `yarn typeorm migrations:run`.
+4. You'll now run all the migrations for the database, *in the backend folder*, with the command `yarn typeorm migrations:run`. Be sure to have the database already created with the proper name.
 
 5. After installing the packages, run the command `yarn start` *in the backend folder* to start the backend. This will keep running until you end the application (Ctrl + C) or close the window that is running. It will not run in the background, so you need to keep the window open. This application uses the port `:3333`, so be careful to not have another application trying to run on the same port.
 
@@ -77,7 +79,7 @@ The whole project was made based on Node.js and react. If you want to emulate th
 
 ## :cop: Remarks
 
-Please notice that this project was made during a bootcamp for better understanding the concepts of the node.js, react and typescript, focusing in learning more about web development.
+Please notice that this project was made during a bootcamp for better understanding the concepts of the node.js, reactjs, reactnative and typescript, focusing in learning more about web development.
 
 This is not a deploy version of the application and may have some bugs and errors. The whole purpose of this code is for learning and I do not have any guaranty if you want to deploy or use it commercially.
 
