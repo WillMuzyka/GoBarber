@@ -1,9 +1,19 @@
-node_modules/
 .vscode/
+
+# project related
+node_modules/
 build/
+coverage/
+
+# sensitive information
+.env
+ormconfig.json
+
+# temp files
 tmp/*
 !tmp/uploads/
 tmp/uploads/*
 !tmp/uploads/.gitkeep
-coverage/
-.env
+
+# yarn
+yarn-error.log
