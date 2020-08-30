@@ -21,7 +21,7 @@
   "exclude":[
     "jest.config.js",
     "prettier.config.js",
-    "babelconfig.js",
+    "babel.config.js",
     "node_modules",
     "coverage",
     "tmp"
