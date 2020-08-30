@@ -12,7 +12,7 @@ import { Container, Error } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  icon: React.ComponentType<IconBaseProps>;
+  icon?: React.ComponentType<IconBaseProps>;
 }
 
 const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
@@ -46,13 +46,15 @@ const Input: React.FC<InputProps> = ({ name, icon: Icon, ...rest }) => {
       hasError={!!error}
       isFilled={isFilled}
       isFocused={isFocused}
+      data-testid="input-container"
     >
-      {Icon && <Icon size={20} />}
+      {Icon && <Icon size={20} data-testid="input-icon" />}
       <input
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}
         defaultValue={defaultValue}
         ref={inputRef}
+        data-testid="input-component"
         {...rest}
       />
       {!!error && (
